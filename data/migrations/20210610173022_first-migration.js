@@ -3,11 +3,12 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
-      table.string('zoo_name', 138)
-      table.string('address', 256)
+      table.string('zoo_name', 138).notNullable().unique()
+      table.string('address', 256).notNullable().unique()
     })
     .createTable('species', table => {
       table.increments('species_id')
+      table.string('zoo_name', 138).notNullable().unique()
     })
     .createTable('animals', table => {
       table.increments('animal_id')
