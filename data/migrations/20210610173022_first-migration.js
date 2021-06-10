@@ -12,6 +12,8 @@ exports.up = function(knex) {
     })
     .createTable('animals', table => {
       table.increments('animal_id')
+      table.string('animal_name', 138).notNullable()
+      
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
