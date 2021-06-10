@@ -1,8 +1,8 @@
 
 exports.up = function(knex) {
   return knex.schema
-    .createTable()
-    .createTable()
+    .createTable('zoos')
+    .createTable('species')
     .createTable()
     .createTable()
 };
@@ -13,5 +13,5 @@ exports.down = function(knex) {
     .dropTableIfExists()
     .dropTableIfExists()
     .dropTableIfExists()
-    .dropTableIfExists()
+    .dropTableIfExists('zoos')
 };
