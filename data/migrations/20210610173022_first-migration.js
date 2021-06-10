@@ -18,8 +18,8 @@ exports.up = function (knex) {
         .notNullable()
         .references('species_id')
         .inTable('species')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE') // NEVER WORRY
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT') // NEVER WORRY
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
@@ -28,15 +28,15 @@ exports.up = function (knex) {
         .notNullable()
         .references('zoo_id')
         .inTable('zoos')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE') // NEVER WORRY
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT') // NEVER WORRY
       table.integer('animal_id')
         .unsigned()
         .notNullable()
         .references('animal_id')
         .inTable('animals')
-        .onDelete('CASCADE')
-        .onUpdate('CASCADE') // NEVER WORRY
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT') // NEVER WORRY
     })
 };
 
