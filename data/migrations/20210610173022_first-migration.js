@@ -1,5 +1,5 @@
 
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
@@ -23,10 +23,17 @@ exports.up = function(knex) {
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
+      table.integer('zoo_id')
+        .unsigned()
+        .notNullable()
+        .references('zoo_id')
+        .inTable('zoos')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE') // NEVER WORRY
     })
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   // we drop them in reverse order we created them
   return knex.schema
     .dropTableIfExists('zoo_animals')
