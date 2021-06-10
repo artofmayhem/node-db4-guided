@@ -30,6 +30,13 @@ exports.up = function (knex) {
         .inTable('zoos')
         .onDelete('CASCADE')
         .onUpdate('CASCADE') // NEVER WORRY
+      table.integer('animal_id')
+        .unsigned()
+        .notNullable()
+        .references('animal_id')
+        .inTable('animals')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE') // NEVER WORRY
     })
 };
 
