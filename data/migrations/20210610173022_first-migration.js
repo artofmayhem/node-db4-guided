@@ -3,9 +3,11 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
+
+
     })
     .createTable('species', table => {
-      table.increments('specie_id')
+      table.increments('species_id')
     })
     .createTable('animals', table => {
       table.increments('animal_id')
