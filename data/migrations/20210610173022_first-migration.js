@@ -19,7 +19,7 @@ exports.up = function(knex) {
         .references('species_id')
         .inTable('species')
         .onDelete('CASCADE')
-        .onUpdate('CASCADE')
+        .onUpdate('CASCADE') // NEVER WORRY
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
