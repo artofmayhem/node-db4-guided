@@ -8,6 +8,10 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
+  // we drop them in reverse order we created them
   return knex.schema
-    
+    .dropTableIfExists()
+    .dropTableIfExists()
+    .dropTableIfExists()
+    .dropTableIfExists()
 };
