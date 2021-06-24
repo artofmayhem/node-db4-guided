@@ -1,18 +1,20 @@
 
 exports.up = function (knex) {
+    //ALWAYS start with tables that contain no foreign keys
+
   return knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
-      table.string('zoo_name', 138).notNullable().unique()
+      table.string('zoo_name', 128).notNullable()
       table.string('address', 256).notNullable().unique()
     })
     .createTable('species', table => {
       table.increments('species_id')
-      table.string('species_name', 138).notNullable()
+      table.string('species_name', 128).notNullable()
     })
     .createTable('animals', table => {
       table.increments('animal_id')
-      table.string('animal_name', 138).notNullable()
+      table.string('animal_name', 128).notNullable()
       table.integer('species_id')
         .unsigned()
         .notNullable()
